@@ -34,9 +34,9 @@ function getTeams($sport='football', $league='nfl'){
 	if ($sport == 'football' && $league == 'ncaa') {
 		return getNCAATeams();
 	} else {
-		$url = "http://site.api.espn.com/apis/site/v2/sports/${sport}/${league}/teams";
+		$url = "https://site.api.espn.com/apis/site/v2/sports/${sport}/${league}/teams";
 		$options = array(
-		'http' => array(
+		'https' => array(
 			'method'  => 'GET',
 			)
 		);
@@ -54,9 +54,9 @@ function getTeams($sport='football', $league='nfl'){
 }
 
 function getNCAATeams(){
-	$url = "http://site.api.espn.com/apis/v2/sports/football/college-football/standings";
+	$url = "https://site.api.espn.com/apis/v2/sports/football/college-football/standings";
 	$options = array(
-  		'http' => array(
+  		'https' => array(
     		'method'  => 'GET',
     	)
 	);
@@ -84,9 +84,9 @@ function getNCAATeams(){
 }
 
 function getSequences(){
-	$url = "http://127.0.0.1/api/sequence/";
+	$url = "https://127.0.0.1/api/sequence/";
 	$options = array(
-		'http' => array(
+		'https' => array(
 		'method'  => 'GET',
 		)
 	);
@@ -104,9 +104,9 @@ function getTeamInfo($sport, $league, $team){
 	if ($league == "ncaa") {
 		$league = "college-football";
 	}
-	$url = "http://site.api.espn.com/apis/site/v2/sports/{$sport}/{$league}/teams/{$team}";
+	$url = "https://site.api.espn.com/apis/site/v2/sports/{$sport}/{$league}/teams/{$team}";
 	$options = array(
-  		'http' => array(
+  		'https' => array(
     		'method'  => 'GET',
     	)
 	);
@@ -179,9 +179,9 @@ function getGameStatus($sport, $league, $gameID, $teamID) {
 		$league = "college-football";
 	}
 
-	$url = "http://site.api.espn.com/apis/site/v2/sports/{$sport}/{$league}/scoreboard/{$gameID}";
+	$url = "https://site.api.espn.com/apis/site/v2/sports/{$sport}/{$league}/scoreboard/{$gameID}";
 	$options = array(
-	'http' => array(
+	'https' => array(
 		'method'  => 'GET',
 		)
 	);
@@ -495,9 +495,9 @@ function updateTeamStatus($reparseSettings=true){
 function insertPlaylistImmediate($playlist) {
   $playlist .= '.fseq';
   $playlist = rawurlencode($playlist);
-  $url = "http://127.0.0.1/api/command/Insert%20Playlist%20Immediate/" . $playlist . "/0/0";
+  $url = "https://127.0.0.1/api/command/Insert%20Playlist%20Immediate/" . $playlist . "/0/0";
   $options = array(
-    'http' => array(
+    'https' => array(
       'method'  => 'GET'
       )
   );
